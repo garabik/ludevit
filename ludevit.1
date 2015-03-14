@@ -1,0 +1,65 @@
+.\"                                      Hey, EMACS: -*- nroff -*-
+.TH LUDEVIT 1 "2006-11-04"
+.SH NAME
+ludev\('it \- converter from standard Slovak into L. St\('ur version
+.SH SYNOPSIS
+.B ludev\('it
+.RI [ options ] [ file ]
+.SH DESCRIPTION
+This manual page documents the
+.B ludev\('it
+command.
+.PP
+\fBludev\('it\fP converts text from standard Slovak into the verion
+designed by L. St\('ur. 
+
+.SH OPTIONS
+.TP
+.BI \-h 
+.BI \-\-help 
+
+Show help and exit.
+
+.TP
+.BI \-D
+.BI \-\-nfkd
+
+Normalize the output text to NFKD unicode normalization
+
+.TP
+.BI \-d
+.BI \-\-nfkd-hack
+
+Normalize the letters d and t with caron to NFKD unicode normalization,
+keep the rest in NFKC.
+
+.TP
+.BI \-e ENC
+.BI \-\-encoding=ENC
+
+Use ENC as input/output encoding. While you can use  any encoding
+supported by python, probably only one of utf-8, iso8859_2, cp1250,
+cp852 or mac_latin2 makes sense.
+
+.TP
+.BI \-o FILE
+.BI \-\-output-file=FILE
+
+Instead of standard output, write the translated text to the 
+.I FILE
+
+.SH USAGE
+
+\fBludev\('it\fP acts as a filter, reading by default UTF-8 encoded text 
+from the standard input and writing UTF-8 encoded text to the standard
+output. Alternatively, if a file name is given as an argumet,
+\fBludev\('it\fP will translate this file (in UTF-8 encoding).
+
+.SH NOTE
+Due to technical restrictions, the program is actually
+installed under the name \fBludevit\fP. 
+
+.SH AUTHOR
+Radovan Garab\('ik <garabik @ kassiopeia.juls.savba.sk>
+
+

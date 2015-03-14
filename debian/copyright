@@ -1,0 +1,46 @@
+This is ludevít, written by Radovan Garabík <garabik @ kassiopeia.juls.savba.sk>
+
+The original source can be found at:
+	http://kassiopeia.juls.savba.sk/~garabik/software/ludevit/
+
+Copyright Holder:  Radovan Garabík
+
+Licencia:
+
+  Tento program je volňe šíriťelní software. Muožeťe ho šíriť a
+  modifikovať podla ustanovení Všeobecnej verejnej licencie GNU,
+  vidávanej nadáciou Free Software Foundaťion a to buď versie 3 tejto
+  licencie, alebo (podla vášho uvážeňja) ktorejkolvek ňeskoršej versie.
+
+  Tento program je rozširovaní v náďeji, že buďe užitoční, ašak BEZ
+  AKEJKOLVEK ZÁRUKI. Ňeposkitujú sa aňi odvoďenje záruki PREDAJNOSŤI
+  alebo VHODNOSŤI PRE URČITÍ ÚČEL. Ďalšje podrobnosťi hladajťe vo
+  Všeobecnej verejnej licencii GNU.
+
+  Kópiu Všeobecnej verejnej licencie GNU sťe mali dostať spolu s tímto
+  programom. Ak sa tak ňestalo, požjadajťe o ňu Free Software
+  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301
+  USA
+
+V Debianovskej distribucii, kompletní text Všeobecnej verejnej
+licencie GNU nájďeťe v adresári `/usr/share/common-licenses/GPL'.
+
+
+License:
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License  
+  along with this package; if not, write to the  Free Software Foundation,
+  Inc. 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+On Debian systems, the complete text of the GNU General
+Public License can be found in `/usr/share/common-licenses/GPL'.

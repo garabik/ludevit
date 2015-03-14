@@ -1,0 +1,59 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+from Tkinter import *
+from ScrolledText import ScrolledText
+
+from ludevit_trans.translator import Translator
+from ludevit_trans import tables_ludevit
+
+translator = Translator(tables_ludevit.table_voc, tables_ludevit.table_ort, tables_ludevit.postprocess)
+translate_text = translator.translate_text
+
+class Application(Frame):
+    def translate(self):
+        self.TRANSLATED.delete("1.0", END)
+        txt = self.TEXT.get("1.0", END)
+        tr_txt = translate_text(txt)
+        self.TRANSLATED.insert(END, tr_txt)
+        self.TEXT.tag_add(SEL, "1.0", END)
+        self.TEXT.focus_set()
+
+    def createWidgets(self):
+    
+        top=self.winfo_toplevel()
+        top.rowconfigure(0, weight=1)
+        top.columnconfigure(0, weight=1)
+        self.rowconfigure(0, weight=1)
+        self.columnconfigure(0, weight=1)
+
+        self.TEXT = ScrolledText(self, width=32, height=24)
+        self.TEXT.grid(row=0, column=0, sticky=N+S+W)
+
+        self.TRANSLATED = ScrolledText(self, width=32, height=24)
+        self.TRANSLATED.grid(row=0, column=1, sticky=N+S+E)
+
+        self.QUIT = Button(self)
+        self.QUIT["text"] = u"skonči"
+        self.QUIT["fg"]   = "red"
+        self.QUIT["command"] =  self.quit
+
+        self.QUIT.grid(row=1, column=1)
+
+
+        self.trans = Button(self)
+        self.trans["text"] = u"prelož",
+        self.trans["command"] = self.translate
+
+        self.trans.grid(row=1, column=0)
+        self.TEXT.focus_set()
+
+    def __init__(self, master=None):
+        Frame.__init__(self, master)
+        self.pack()
+        self.createWidgets()
+
+root = Tk()
+app = Application(master=root)
+app.mainloop()
+root.destroy()

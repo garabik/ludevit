@@ -1,0 +1,43 @@
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
+import sys, codecs, fileinput, unicodedata
+
+from ludevit_trans.translator import Translator
+from ludevit_trans import tables_ludevit
+
+from optparse import OptionParser
+
+parser = OptionParser(usage="usage: %prog [options] [file]")
+parser.add_option("-D", "--nfkd",
+      action="store_const", default='none', const='all', dest="nfkd",
+      help="Normalize the output to NFKD")
+parser.add_option("-d", "--nfkd-hack",
+      action="store_const", const='hack', dest="nfkd",
+      help="Normalize the letters d and t with caron to NFKD")
+parser.add_option("-o", "--output-file",
+      action="store", type="string", dest="output_file",
+      help="Output file")
+
+parser.add_option("-e", "--encoding",
+      action="store", type="string", dest="encoding",
+      default='utf-8',
+      help="Input/output encoding (one of utf-8, iso8859_2, cp1250, cp852, mac_latin2)")
+
+
+(options, args) = parser.parse_args()
+
+if options.output_file:
+    out = file(options.output_file, 'w')
+else:
+    out = sys.stdout
+
+out = codecs.getwriter(options.encoding)(out)
+
+translator = Translator(tables_ludevit.table_voc, tables_ludevit.table_ort, tables_ludevit.postprocess)
+
+for line in fileinput.input(args):
+    l = unicode(line, options.encoding)
+    l = unicodedata.normalize('NFKC', l)
+    tran = translator.translate_text(l, options.nfkd)
+    print >>out, tran
