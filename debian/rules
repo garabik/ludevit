@@ -88,8 +88,7 @@ binary-indep: build install
 	dh_fixperms
 #	dh_perl
 #	dh_makeshlibs
-	dh_pycentral
-	dh_python
+	dh_python2
 	dh_installdeb
 #	dh_shlibdeps
 	dh_gencontrol
