@@ -1,8 +1,21 @@
-ludevit (8) UNRELEASED; urgency=low
+ludevit (8.1) unstable; urgency=low
+
+  * incorporate previous NMU
+
+ --  Radovan Garabík <garabik@kassiopeia.juls.savba.sk>  Mon, 11 Apr 2016 16:08:19 +0200
+
+ludevit (8) unstable; urgency=low
 
   * some exceptions added
 
  -- Radovan Garabík <garabik@kassiopeia.juls.savba.sk>  Sat, 14 Mar 2015 16:46:54 +0100
+
+ludevit (7+nmu1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Convert to dh_python2 (Closes: #616880).
+
+ -- Luca Falavigna <dktrkranz@debian.org>  Fri, 31 May 2013 09:10:53 +0200
 
 ludevit (7) unstable; urgency=low
 
