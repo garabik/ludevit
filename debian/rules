@@ -10,45 +10,22 @@
 #export DH_VERBOSE=1
 
 
+build: build-arch build-indep
+build-arch: build-stamp
+build-indep: build-stamp
+build-stamp:
+	# nothing to do
 
 
-CFLAGS = -Wall -g
-
-ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
-	CFLAGS += -O0
-else
-	CFLAGS += -O2
-endif
-
-configure: configure-stamp
-configure-stamp:
-	dh_testdir
-	# Add here commands to configure the package.
-
-	touch configure-stamp
-
-
-build: build-stamp
-
-build-stamp: configure-stamp 
-	dh_testdir
-
-	# Add here commands to compile the package.
-	#$(MAKE)
-	#docbook-to-man debian/ludevit.sgml > ludevit.1
-
-	touch $@
+# Build architecture-dependent files here.
+binary-arch: install
+# We have nothing to do by default.
 
 clean:
 	dh_testdir
 	dh_testroot
-	rm -f build-stamp configure-stamp
-
-	# Add here commands to clean up after the build process.
-	#-$(MAKE) clean
 	python setup.py clean
 	rm -rfv build/
-
 	dh_clean 
 
 install: build
@@ -56,13 +33,8 @@ install: build
 	dh_testroot
 	dh_clean -k 
 	dh_installdirs
-
-	# Add here commands to install the package into debian/ludevit.
 	python setup.py install --no-compile --prefix $(CURDIR)/debian/ludevit/usr
 
-# Build architecture-dependent files here.
-#binary-arch: build install
-# We have nothing to do by default.
 
 # Build architecture-independent files here.
 binary-indep: build install
