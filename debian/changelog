@@ -1,3 +1,9 @@
+ludevit (9.1-1) unstable; urgency=low
+
+  * fix documentation (only UTF-8 is supported from now on)
+
+ -- Radovan Garabík <garabik@kassiopeia.juls.savba.sk>  Mon, 02 Sep 2019 16:19:19 +0200
+
 ludevit (9-1) unstable; urgency=low
 
   * convert to python3 (closes: #936971)
