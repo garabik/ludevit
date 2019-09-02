@@ -2,14 +2,13 @@ Source: ludevit
 Section: text
 Priority: extra
 Maintainer: Radovan Garabík <garabik@kassiopeia.juls.savba.sk>
-Build-Depends: debhelper (>= 5.0.37.2), python (>= 2.6.6-3~) | python-dev (>= 2.6.6-3~) | python-all-dev (>= 2.6.6-3~)
-X-Python-Version: >= 2.3
-Standards-Version: 3.8.0
+Build-Depends: debhelper (>=9), python3, dh-python
+Standards-Version: 4.3.6
 
 Package: ludevit
 Architecture: all
-Depends: ${python:Depends}, ${misc:Depends}
-Suggests: python-tk
+Depends: ${python3:Depends}, ${misc:Depends}
+Suggests: python3-tk
 Description: converter from standard Slovak into the L. Štúr version
  ludevít is a filter that does a full text translation of plain text
  from modern Slovak into the Ludevít Štúr version.

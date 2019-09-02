@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
 import unicodedata
@@ -22,14 +22,14 @@ def parse_text(text):
 def words2text(words):
     r = ''
     for w in words:
-        r += unicode(w)
+        r += str(w)
     return r
 
 
 class Translator:
 
     def __init__(self, table_voc, table_ort, postprocess=None):
-	self.translate = Translate(table_voc, table_ort, postprocess)
+        self.translate = Translate(table_voc, table_ort, postprocess)
 
     def translate_words(self, words):
         for w in words:
@@ -47,7 +47,7 @@ class Translator:
         if nfkd=='all':
             text = unicodedata.normalize('NFKD', text)
         elif nfkd=='hack':
-            text = text.replace(u'ď', u'd\N{COMBINING CARON}').replace(u'ť', u't\N{COMBINING CARON}')
+            text = text.replace('ď', 'd\N{COMBINING CARON}').replace('ť', 't\N{COMBINING CARON}')
         return text
 
 
@@ -57,7 +57,6 @@ if __name__ == '__main__':
 
     import fileinput
     for line in fileinput.input():
-        t =  translator.translate_text(line.decode('utf-8'))
-        print t
-        
-            
+        t =  translator.translate_text(line)
+        print(t)
+

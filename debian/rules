@@ -24,7 +24,7 @@ binary-arch: install
 clean:
 	dh_testdir
 	dh_testroot
-	python setup.py clean
+	python3 setup.py clean
 	rm -rfv build/
 	dh_clean 
 
@@ -33,7 +33,7 @@ install: build
 	dh_testroot
 	dh_prep
 	dh_installdirs
-	python setup.py install --no-compile --prefix $(CURDIR)/debian/ludevit/usr
+	python3 setup.py install --no-compile --prefix $(CURDIR)/debian/ludevit/usr
 
 
 # Build architecture-independent files here.
@@ -60,7 +60,7 @@ binary-indep: build install
 	dh_fixperms
 #	dh_perl
 #	dh_makeshlibs
-	dh_python2
+	dh_python3
 	dh_installdeb
 #	dh_shlibdeps
 	dh_gencontrol

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
 # simple text tokenization
@@ -7,8 +7,8 @@
 
 import unicodedata
 
-lowercase = u'aáäbcčdďeéfghiíjklľĺmnňoóôprŕsštťuúvwxyýzž'
-uppercase = u'AÁÄBCČDĎEÉFGHIÍJKLĽĹMNŇOÓÔPRŔSŠTŤUÚVWXYÝZŽ'
+lowercase = 'aáäbcčdďeéfghiíjklľĺmnňoóôprŕsštťuúvwxyýzž'
+uppercase = 'AÁÄBCČDĎEÉFGHIÍJKLĽĹMNŇOÓÔPRŔSŠTŤUÚVWXYÝZŽ'
 slovak_letters = lowercase+uppercase
 
 def IsSlovak(s):
@@ -19,20 +19,18 @@ def IsSlovak(s):
     return True
 
 def IsLetter(c):
-#    if c in u"-@\u2010":
+#    if c in "-@\u2010":
 #    	return True
 #    print `c`
-    category = unicodedata.category(unicode(c))
+    category = unicodedata.category(c)
     return category[0] in 'LMN'
-    
 
 def IsWs(c):
     # eventualy, if your input texts have rich unicode formatting,
     # add other types of spaces here (such as ETHIOPIC WORDSPACE, EN SPACE ....)
-    return c in u" \t\n\r\u00a0"
+    return c in " \t\n\r\u00a0"
 
 def make_tokens(text):
-    "text is to be unicode string"
     ws = '' # whitespace in front of each token
     word = ''
     for c in text:
@@ -57,6 +55,6 @@ def make_tokens(text):
 if __name__ == '__main__':
     import fileinput
     for line in fileinput.input():
-        for token, ws in make_tokens(line.decode('utf-8')):
-            print token.encode('utf-8'), `ws`
-            
+        for token, ws in make_tokens(line):
+            print (token, repr(ws))
+

@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: UTF-8 -*-
 
 import re, string
@@ -9,14 +9,15 @@ class MultiReplace:
 
     def __init__(self, repl_dict):
 
-	if not repl_dict:
-	    self.replace = lambda x: x
-	    return
+        if not repl_dict:
+            self.replace = lambda x: x
+            return
         # string to string mapping; use a regular expression
-        keys = repl_dict.keys()
-        keys.sort() # lexical order
-        keys.reverse() # use longest match first
-        pattern = string.join(map(re.escape, keys), "|")
+
+        # lexical order
+        # use longest match first
+        keys = sorted(repl_dict.keys(), reverse=True)
+        pattern = '|'.join(map(re.escape, keys))
         self.pattern = re.compile(pattern)
         self.dict = repl_dict
 
@@ -26,8 +27,6 @@ class MultiReplace:
             item = match.group(0)
             return get(item, item)
         return self.pattern.sub(repl, str)
-
-
 
 
 def tok2psre(tok):
@@ -43,17 +42,17 @@ def psre2tok(s):
 class Translate:
 
     def __init__(self, table_voc, table_ort, postprocess=None):
-	self.table_voc = table_voc
-	self.table_ort = table_ort
-	self.postprocess = postprocess
-	self.mr_voc = MultiReplace(table_voc)
-	self.mr_ort = MultiReplace(table_ort)
+        self.table_voc = table_voc
+        self.table_ort = table_ort
+        self.postprocess = postprocess
+        self.mr_voc = MultiReplace(table_voc)
+        self.mr_ort = MultiReplace(table_ort)
 
     def trans_voc(self, tok):
-	return self.mr_voc.replace(tok)
+        return self.mr_voc.replace(tok)
 
     def trans_ort(self, tok):
-	return self.mr_ort.replace(tok)
+        return self.mr_ort.replace(tok)
 
 
     def trans(self, tok):
@@ -70,8 +69,8 @@ class Translate:
             if lastup:
                 tl[i] = tl[i].upper()
         t = ''.join(tl)
-	if self.postprocess:
-	    t = self.postprocess(t)
+        if self.postprocess:
+            t = self.postprocess(t)
         return t
 
         
@@ -79,5 +78,5 @@ if __name__ == '__main__':
     import tables_ludevit
     t = Translate(tables_ludevit.table_voc, tables_ludevit.table_ort, tables_ludevit.postprocess)
 #    t = Translate(None, None)
-    print `t.trans(u'vláda')`
+    print(repr(t.trans('vláda')))
 
