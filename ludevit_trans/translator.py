@@ -3,8 +3,8 @@
 
 import unicodedata
 
-from translate import Translate
-from tokens import make_tokens, IsSlovak
+from ludevit_trans.translate import Translate
+from ludevit_trans.tokens import make_tokens, IsSlovak
 
 class Word:
     def __init__(self, token, ws):

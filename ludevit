@@ -19,12 +19,6 @@ parser.add_option("-o", "--output-file",
       action="store", type="string", dest="output_file",
       help="Output file")
 
-parser.add_option("-e", "--encoding",
-      action="store", type="string", dest="encoding",
-      default='utf-8',
-      help="Input/output encoding (one of utf-8, iso8859_2, cp1250, cp852, mac_latin2)")
-
-
 (options, args) = parser.parse_args()
 
 if options.output_file:
@@ -32,13 +26,10 @@ if options.output_file:
 else:
     out = sys.stdout
 
-out = codecs.getwriter(options.encoding)(out)
-
 translator = Translator(tables_ludevit.table_voc, tables_ludevit.table_ort, tables_ludevit.postprocess)
 
 for line in fileinput.input(args):
-    l = unicode(line, options.encoding)
-    l = unicodedata.normalize('NFKC', l)
+    l = unicodedata.normalize('NFKC', line)
     tran = translator.translate_text(l, options.nfkd)
     print (tran, file=out)
 

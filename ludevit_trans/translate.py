@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 import re, string
-import tokens
+import ludevit_trans.tokens as tokens
 
 
 class MultiReplace:
