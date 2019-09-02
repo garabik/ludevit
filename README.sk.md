@@ -25,11 +25,6 @@ Vístup je možno modifikovať ďalšimí argumentamí k programu:
     -o súbor alebo --output-file súbor - vístup zapíše do súboru mjesto na štadardní vístup
     -D alebo --nfkd - vístup buďe v NFKD normalizácii
     -d alebo --nfkd-hack - písmeni ď a ť budú v NFKD normalizácii, ostatnje v NFKC
-    -e ENCODING alebo --encoding ENCODING - mjesto štandardnjeho koduvaňja utf-8,
-       predpokladaj vstup a vístup v koduvaňí ENCODING, ktoruo muože biť hocijaké
-       koduvaňje podporovanuo pythonom, ale pravďepodobňe víznam má len jedno
-       z utf-8, iso8859_2, cp1250, cp852 alebo mac_latin2. 
-       Koduvaňja inuo ňež utf-8 ňje je kompatibilnuo s volbamí -D a -d.
 
 Víznam parametra -d
 -------------------
@@ -46,3 +41,4 @@ predchádzajúcou ňezmeňená zobrazí, čo vizerá temer ako puovodní histori
 spuosob písaňja. Žjal, ňjektorje renderovacie sistemi alebo tjeto čjarki zle
 zobrazujú, alebo naopak tak ako má čjarku s písmenou skombinujú dobre a ináč
 zobrazja, a teda tento spuosob ňje vždi dobrje vísledki dáva.
+
