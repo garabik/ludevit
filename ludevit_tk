@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
-from Tkinter import *
-from ScrolledText import ScrolledText
+from tkinter import *
+from tkinter.scrolledtext import ScrolledText
 
 from ludevit_trans.translator import Translator
 from ludevit_trans import tables_ludevit
@@ -20,7 +20,7 @@ class Application(Frame):
         self.TEXT.focus_set()
 
     def createWidgets(self):
-    
+
         top=self.winfo_toplevel()
         top.rowconfigure(0, weight=1)
         top.columnconfigure(0, weight=1)
@@ -34,7 +34,7 @@ class Application(Frame):
         self.TRANSLATED.grid(row=0, column=1, sticky=N+S+E)
 
         self.QUIT = Button(self)
-        self.QUIT["text"] = u"skonči"
+        self.QUIT["text"] = "skonči"
         self.QUIT["fg"]   = "red"
         self.QUIT["command"] =  self.quit
 
@@ -57,3 +57,4 @@ root = Tk()
 app = Application(master=root)
 app.mainloop()
 root.destroy()
+

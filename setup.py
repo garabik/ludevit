@@ -4,7 +4,7 @@
 from distutils.core import setup
 
 setup(name='ludevít',
-      version='3',
+      version='9',
       description='converter from standard Slovak into L. Štúr version',
       author='Radovan Garabík',
       author_email='garabik@kassiopeia.juls.savba.sk',
