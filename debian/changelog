@@ -1,3 +1,10 @@
+ludevit (9.2-1) unstable; urgency=medium
+
+  * a few new words
+  * source only upload (closes: #952644)
+
+ -- Radovan Garabík <garabik@kassiopeia.juls.savba.sk>  Mon, 02 Mar 2020 16:13:20 +0100
+
 ludevit (9.1-1) unstable; urgency=low
 
   * fix documentation (only UTF-8 is supported from now on)
