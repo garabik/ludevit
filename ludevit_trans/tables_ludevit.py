@@ -2,7 +2,6 @@
 # -*- coding: UTF-8 -*-
 
 
-
 table_voc = {
 '^zámen'        : '^všemen',
 '^zámena$'      : '^zámena$',
@@ -131,7 +130,6 @@ table_voc = {
 'milión'        : 'milion',
 'miliar'        : 'milyar',
 
-
 '^vonkajš'      : '^vňešn',
 '^vonkajšia'    : '^vňešná',
 '^pripom'       : '^prípom',
@@ -200,14 +198,11 @@ table_ort = {
 'del$'         : 'ďeu$',
 'nel$'         : 'ňeu$',
 
-
 'de'           : 'ďe',
 'te'           : 'ťe',
 'ne'           : 'ňe',
 'del$'         : 'ďeu$',
 'nel$'         : 'ňeu$',
-
-
 
 'di'           : 'ďi',
 'ti'           : 'ťi',
@@ -237,7 +232,6 @@ table_ort = {
 'ími$'          : 'imí$',
 'ými$'          : 'imí$',
 
-
 'acov'          : 'acuv',
 'ažov'          : 'ažuv',
 'slov'          : 'slov',
@@ -266,3 +260,4 @@ def postprocess(t):
     if t.startswith('sloven') or t.startswith('vláda'):
         t = t.capitalize()
     return t
+

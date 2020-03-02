@@ -38,7 +38,6 @@ def psre2tok(s):
     return s[1:-1]
 
 
-
 class Translate:
 
     def __init__(self, table_voc, table_ort, postprocess=None):
@@ -73,7 +72,6 @@ class Translate:
             t = self.postprocess(t)
         return t
 
-        
 if __name__ == '__main__':
     import tables_ludevit
     t = Translate(tables_ludevit.table_voc, tables_ludevit.table_ort, tables_ludevit.postprocess)
