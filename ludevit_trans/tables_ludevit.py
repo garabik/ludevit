@@ -124,6 +124,14 @@ table_voc = {
 'reuters'       : 'reutërs',
 'matemati'      : 'matëmaty',
 'informati'     : 'informaty',
+'efektí'        : 'efektý',
+'festiv'        : 'festyv',
+'septemb'       : 'septëmb',
+'motiv'         : 'motyv',
+'inštit'        : 'inštyt',
+'kultúrneho'    : 'kultúrnjeho',
+'minister'      : 'minystër',
+
 
 # europske unie a podobne
 '^úni'          : '^uny',
