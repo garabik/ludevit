@@ -131,6 +131,13 @@ table_voc = {
 'inštit'        : 'inštyt',
 'kultúrneho'    : 'kultúrnjeho',
 'minister'      : 'minystër',
+'intel'       : 'yntël',
+'^new$':'^nëw$',
+'^central$':'^central$',
+'^technic' : '^tëchnyc',
+'^technik' : '^tëchnyk',
+'^cvti': '^cvty',
+
 
 
 # europske unie a podobne
@@ -148,7 +155,7 @@ table_voc = {
 '^bratislavsk'  : '^prešporsk',
 
 # ak sa zmeni rod, budu zle pripadne adjektiva
-# ale toto je prils casty pripad tak ho dame ako vynimka
+# ale toto je prilis casty pripad tak ho dame ako vynimka
 # s tym, ze nejake adjektiva sa tu nepouzivaju az tak casto
 '^bratislava$'  : '^prešporok$',
 '^bratislavy$'  : '^prešporku$',
