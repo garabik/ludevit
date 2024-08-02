@@ -1,3 +1,10 @@
+ludevit (9.3-1) unstable; urgency=low
+
+  * a few new words
+  * cosmetic changes in examles
+
+ -- Radovan Garabík <garabik@kassiopeia.juls.savba.sk>  Fri, 02 Aug 2024 16:25:18 +0200
+
 ludevit (9.2-1) unstable; urgency=medium
 
   * a few new words
