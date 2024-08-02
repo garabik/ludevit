@@ -94,18 +94,18 @@ def is_valid_url(url):
     "protection against malformed urls"
     # length restriciton
     if len(url)>2047:
-	return False
+        return False
     # and, an url should not contain control characters
     for c in url:
-	if c<ord(' '):
-	    return False
+        if c<ord(' '):
+            return False
     return True
 
 def fix_url(url):
     if url.startswith(r'http:\\'): # stupid, stupid
-	url = url.replace('\\', '/')
+        url = url.replace('\\', '/')
     if '://' not in url:
-	url = 'http://'+url
+        url = 'http://'+url
     return url
 
 def format_translation(text):

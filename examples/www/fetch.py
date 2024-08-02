@@ -112,7 +112,7 @@ def prepare_page(url, user_agent):
     try:
         f = urllib2.urlopen(req)
     except urllib2.HTTPError:
-	# redir to original url
+        # redir to original url
         headers = 'Location: %s\r\n' % url
         charset = 'us-ascii'
         first_chunk = ''
@@ -146,7 +146,7 @@ def prepare_page(url, user_agent):
     charset = charset_from_headers or charset_from_meta
 #    if charset_from_meta and charset_from_headers and (charset_from_meta != charset_from_headers):
         # we should honour the charset form headers, as per http standard
-	# this code was clever, but e.g. www.nku.gov.sk fails the test
+        # this code was clever, but e.g. www.nku.gov.sk fails the test
         #if 'windows-1250' in [charset_from_meta, charset_from_headers]:
         #    charset = 'windows-1250'
         #elif 'iso-8859-2' in [charset_from_meta, charset_from_headers]:
@@ -171,18 +171,17 @@ def add_base_url(chunk, base):
     bastag = '<base href="%s" />'%base
     headtag = '<head>'+bastag+'</head>'
     if re.search(r'<head\b.*?>', chunk, re.I+re.S):
-	r = re.sub(r'(?i)(<head\b.*?>)', r'\1'+bastag, chunk)
+        r = re.sub(r'(?i)(<head\b.*?>)', r'\1'+bastag, chunk)
     # try to add head
     elif re.search(r'<html\b.*?>', chunk, re.I+re.S):
-	r = re.sub(r'(?i)(<html\b.*?>)', r'\1'+headtag , chunk)
+        r = re.sub(r'(?i)(<html\b.*?>)', r'\1'+headtag , chunk)
     elif chunk.startswith('<!'):
-	r = re.sub(r'(<\!.*?>)', r'\1'+headtag, chunk)
+        r = re.sub(r'(<\!.*?>)', r'\1'+headtag, chunk)
     else:
-	# no <head>, no <!doctype>, ho <html>... just add it
-	r = headtag+chunk
+        # no <head>, no <!doctype>, ho <html>... just add it
+        r = headtag+chunk
 
     return r
-	
 
 def translate_page(url, user_agent):
     pp = prepare_page(url, user_agent)

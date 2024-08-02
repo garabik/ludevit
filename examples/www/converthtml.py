@@ -13,7 +13,7 @@ class NullParser:
 
     def close(self):
         pass
-        
+
     def pull(self):
         r = self.output_buffer
         self.output_buffer = ''
@@ -26,7 +26,7 @@ class BasicParser:
         self.in_tag = False
         self.current_tag = ''
         self.current_data = ''
-        
+
     def feed(self, data):
         self.process(data)
 
@@ -58,7 +58,7 @@ class BasicParser:
     def process_tag(self, tagstr):
         "to be subclassed"
         return tagstr
-        
+
     def process_data(self, datastr):
         "to be subclassed"
         return datastr
@@ -73,17 +73,17 @@ class CopyParser(BasicParser):
     def process_tag(self, tagstr):
         "to be subclassed"
         self.output_buffer += tagstr
-        
+
     def process_data(self, datastr):
         "to be subclassed"
         self.output_buffer += datastr
-        
+
     def pull(self):
         r = self.output_buffer
         self.output_buffer = ''
         return r
 
-class CopyAndModifyParser(CopyParser):            
+class CopyAndModifyParser(CopyParser):
     def __init__(self):
         self.in_script = False
         self.in_style = False
@@ -100,14 +100,14 @@ class CopyAndModifyParser(CopyParser):
             self.in_style = True
         elif re.match(r'(?is)</style\b', tagstr):
             self.in_style = False
-        
+
     def process_data(self, datastr):
         if self.in_script or self.in_style: # do not modify data inside <script></script> tags...
             newdata = datastr
         else:
             newdata = self.modify_data(datastr)
         self.output_buffer += newdata
-    
+
     def modify_tag(self, tagstr):
         "to be subclassed"
         return tagstr
@@ -156,7 +156,7 @@ class ModifyHrefParser(CopyAndModifyParser):
     # also rewrite href's to go through our cgi script
     def __init__(self, cgi_url, base_url):
         self.cgi_url = cgi_url
-	self.base_url = base_url
+        self.base_url = base_url
         CopyAndModifyParser.__init__(self)
 
     def modify_tag(self, tagstr):
@@ -166,11 +166,11 @@ class ModifyHrefParser(CopyAndModifyParser):
         m = re.search(r'<([A-Za-z]+?)\b', tagstr, re.S)
         if m:
             tag = m.group(1)
-	    if tag.lower()=='a':
+            if tag.lower()=='a':
                 spanval = get_uri_tag_value(tagstr, 'href')
                 if spanval: # found, we need to replace the reference
                     start, end, val = spanval
-		    url = _urljoin(self.base_url, val)
+                    url = _urljoin(self.base_url, val)
                     newval = self.cgi_url+'?'+'url='+urllib.quote_plus(url, safe='')
                     tagstr = tagstr[:start]+''+'href'+'="'+newval+'"'+tagstr[end:]
         return tagstr
